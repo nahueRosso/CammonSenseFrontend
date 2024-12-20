@@ -86,3 +86,26 @@ body {
     @apply bg-background text-foreground;
   }
 }
+/* Personalizar la barra de desplazamiento completa */
+::-webkit-scrollbar {
+  width: 8px; /* Ancho de la barra vertical */
+  height: 8px; /* Altura de la barra horizontal */
+}
+
+/* Personalizar el fondo de la barra de desplazamiento */
+::-webkit-scrollbar-track {
+  background: #f3f4f6; /* Color del fondo */
+  border-radius: 10px; /* Bordes redondeados */
+}
+
+/* Personalizar la "thumb" (el indicador que se mueve) */
+::-webkit-scrollbar-thumb {
+  background: hsl(240, 6%, 10%); /* Color de la barra */
+  border-radius: 10px; /* Bordes redondeados */
+  border: 2px solid #f3f4f6; /* Espaciado entre el thumb y el track */
+}
+
+/* Cambiar el color al pasar el mouse */
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(240 5.9% 10%); /* Color del thumb en hover */
+}
