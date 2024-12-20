@@ -12,6 +12,12 @@ export default function Page() {
     child: "Dashboard-1",
   });
 
+  const tableData = [
+    { id: 1, name: "John Doe", email: "john@example.com", role: "Admin" },
+    { id: 2, name: "Jane Smith", email: "jane@example.com", role: "Editor" },
+    { id: 3, name: "Bob Johnson", email: "bob@example.com", role: "Viewer" },
+  ];
+
   return (
     <SidebarProvider>
       <AppSidebar onItemClick={(parent, child) => setCurrentSelection({ parent, child })} />
@@ -20,7 +26,7 @@ export default function Page() {
 
 
         <div className="flex flex-1 flex-col gap-4 px-4 py-10">
-          <TableParent parent={currentSelection.parent} child={currentSelection.child}/>
+          <TableParent parent={currentSelection.parent} child={currentSelection.child} data={tableData} />
         </div>
         
       </SidebarInset>
