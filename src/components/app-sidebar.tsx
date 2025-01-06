@@ -32,10 +32,12 @@ const data = {
         {
           title: "Dashboard-1",
           url: "#",
+          type: "TasksPage",
         },
         {
           title: "Dashboard-2",
           url: "#",
+          type: "TasksPage",
         },
       ],
     },
@@ -46,27 +48,33 @@ const data = {
         {
           title: "User",
           url: "#",
+          type: "ProfileForm",
         },
         {
           title: "Companies",
           url: "#",
+          type: "TasksPage",
           isActive: true,
         },
         {
           title: "Form Requests",
           url: "#",
+          type: "LoginForm",
         },
         {
           title: "Transactions",
           url: "#",
+          type: "TasksPage",
         },
         {
           title: "Recurrent Transactions",
           url: "#",
+          type: "TasksPage",
         },
         {
           title: "Documents",
           url: "#",
+          type: "TasksPage",
         },
       ],
     },
@@ -77,18 +85,22 @@ const data = {
         {
           title: "Portfolios-1",
           url: "#",
+          type: "TasksPage",
         },
         {
           title: "Portfolios-2",
           url: "#",
+          type: "TasksPage",
         },
         {
           title: "Portfolios-3",
           url: "#",
+          type: "TasksPage",
         },
         {
           title: "Portfolios-4",
           url: "#",
+          type: "TasksPage",
         },
       ],
     },
@@ -99,29 +111,34 @@ const data = {
         {
           title: "Settings-1",
           url: "#",
+          type: "TasksPage",
         },
         {
           title: "Settings-2",
           url: "#",
+          type: "TasksPage",
         },
         {
           title: "Settings-3",
           url: "#",
+          type: "TasksPage",
         },
         {
           title: "Settings-4",
           url: "#",
+          type: "TasksPage",
         },
       ],
     },
   ],
 };
 
+
 export function AppSidebar({
   onItemClick,
   ...props
 }: React.ComponentProps<typeof Sidebar> & {
-  onItemClick?: (parent: string, child: string) => void;
+  onItemClick?: (parent: string, child: string, type: string) => void;
 }) {
   return (
     <Sidebar {...props}>
@@ -171,7 +188,11 @@ export function AppSidebar({
                           asChild
                           isActive={childItem.isActive}
                           onClick={() =>
-                            onItemClick?.(parentItem.title, childItem.title)
+                            onItemClick?.(
+                              parentItem.title,
+                              childItem.title,
+                              childItem.type // Pasar el tipo
+                            )
                           }
                         >
                           <a href={childItem.url}>{childItem.title}</a>
@@ -189,3 +210,4 @@ export function AppSidebar({
     </Sidebar>
   );
 }
+
