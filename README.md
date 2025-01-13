@@ -1,2 +1,2 @@
 # ADMIN 
-![Logo](./public/isologo-1.png)
+![Logo](./src/app/favicon.ico)
