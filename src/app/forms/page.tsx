@@ -7,6 +7,8 @@ import { Header } from "@/components/app-header";
 import { ProfileForm } from "@/components/app-form";
 import { TasksPage } from "@/components/app-tasks";
 import { LoginForm } from "@/components/app-login-form"
+import { columnsDefault , data,data2} from "@/components/components-tasks/tasks-default"
+import { formDefault, userData } from "@/components/components-form/forms-default"
 
 export default function Page() {
   const [currentSelection, setCurrentSelection] = useState({
@@ -15,12 +17,22 @@ export default function Page() {
     type: "TasksPage",
   });
 
+
   const renderContent = () => {
     switch (currentSelection.type) {
+      
       case "TasksPage":
-        return <TasksPage />;
+        switch (currentSelection.child) {
+          case "Dashboard-1":
+            return <TasksPage columns={columnsDefault} data={data2} />;
+          case "Settings-2":
+            return <TasksPage columns={columnsDefault} data={data2} />;
+          default:
+            return <TasksPage columns={columnsDefault} data={data} />;
+        }
+      
       case "ProfileForm":
-        return <ProfileForm />;
+        return <ProfileForm fields={formDefault} data={userData} />;
       case "LoginForm":
         return <LoginForm />;
       default:
